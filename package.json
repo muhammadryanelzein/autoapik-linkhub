@@ -1,0 +1,27 @@
+{
+  "name": "autoapik-linkhub",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "share": "next build && concurrently -k -n WEB,LINK -c green,yellow \"serve out -l 3000\" \"cloudflared tunnel --url http://localhost:3000\"",
+    "deploy": "next build && wrangler pages deploy out --project-name=autoapik"
+  },
+  "dependencies": {
+    "next": "^15.0.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "cloudflared": "^0.7.3",
+    "concurrently": "^10.0.6",
+    "typescript": "^5.5.0",
+    "serve": "^14.2.0",
+    "wrangler": "^4.45.0"
+  }
+}
